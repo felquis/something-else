@@ -1,0 +1,59 @@
+body, html {
+	margin: 0;
+}
+
+.box {
+	width: 200px;
+	height: 200px;
+	position: relative;
+	display: block;
+	perspective: 500px;
+	float: left;
+}
+
+img {
+	width: 100%;
+	height: auto;
+	position: absolute;
+}
+
+.front {
+	transform: rotateY(0deg);
+}
+
+.back {
+	transform: rotateY(270deg);
+}
+
+.turn .front {
+	animation-name: turn;
+	animation-duration: 500ms;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-in;
+}
+
+.turn .back {
+	animation-name: turnback;
+	animation-duration: 500ms;
+	animation-fill-mode: forwards;
+	animation-delay: 500ms;
+	animation-timing-function: ease-out;
+}
+
+@keyframes turn {
+	from {
+		transform: rotateY(0deg);
+	}
+	to {
+		transform: rotateY(90deg);
+	}
+}
+
+@keyframes turnback {
+	from {
+		transform: rotateY(270deg);
+	}
+	to {
+		transform: rotateY(360deg);
+	}
+}
