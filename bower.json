@@ -1,0 +1,20 @@
+{
+  "name": "protetor-de-tela",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Felquis Gimenes <frgformenton@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/felquis/something-else",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fetch": "^1.0.0"
+  }
+}
