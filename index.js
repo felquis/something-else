@@ -1,4 +1,6 @@
 var boxes = document.querySelectorAll('.box')
+var boxContainer = document.querySelector('.box-container')
+
 var boxCount = boxes.length
 var images = [
 	'http://lorempixel.com/500/500/cats/1/',
@@ -42,30 +44,24 @@ function turnImage () {
 		var aux = front.src
 		front.src = back.src
 		back.src = images[ Math.floor(Math.random() * images.length) ]
-		// box.classList.add('turned')
 		box.classList.remove('turn')
 	}, 1000)
 }
 
-// var time
+fixScreen()
+window.addEventListener('resize', fixScreen)
 
-// box.addEventListener('click', function (event) {
-// 	var target = event.currentTarget
+function fixScreen() {
+	var boxWidth = (window.innerHeight / 5)
+	var boxSize =  boxWidth + 'px'
 
-// 	target.classList.toggle('turn')
+	Array.prototype.slice.call(boxes).forEach(function (element) {
+		element.style.height = boxSize
+		element.style.width  = boxSize
+	})
 
-// 	clearTimeout(time)
+	var diff = window.innerWidth - (Math.floor(window.innerWidth / boxWidth) * boxWidth)
 
-// 	time = setTimeout(function(){ 
-// 		var front = target.querySelector('.front')
-// 		var back = target.querySelector('.back')
-
-// 		target.classList.remove('turn')
-
-// 		front.classList.add('back')
-// 		front.classList.remove('front')
-
-// 		back.classList.add('front')
-// 		back.classList.remove('back')
-// 	}, 1000);
-// })
+	boxContainer.style.width = window.innerWidth + boxWidth + 'px'
+	boxContainer.style.marginLeft = -(boxWidth - diff) / 2 + 'px'
+}
